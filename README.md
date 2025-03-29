@@ -17,3 +17,11 @@ Note:
 
 daisyUI is a plugin for Tailwind CSS:
 https://daisyui.com/components/link/
+
+
+Router
+Create BrowserRouter > Routes > Route=/Boday >RouteChildren
+Create an Outlet in your body component
+
+
+For footer margin add "fixed bottom-0"
