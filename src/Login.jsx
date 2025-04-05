@@ -1,12 +1,22 @@
 import { useState } from "react"
 import axios from "axios";
+import { useDispatch } from "react-redux"
+
+import { addUser } from "./utils/userSlice";
 const Login = () => {
     const [email, setEmailId] = useState("atharv@gmail.com");
     const [password, setPassword] = useState("Atharv@123");
+    const dispatch = useDispatch();
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post("http://localhost:7777/login", { email, password }, { withCredentials: true })
+            const response = await axios.post("http://localhost:7777/login", {
+                email,
+                password
+            }, {
+                withCredentials: true
+            })
+            dispatch(addUser(response.data));
 
         } catch (err) {
             console.error(err);

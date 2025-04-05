@@ -25,3 +25,14 @@ Create an Outlet in your body component
 
 
 For footer margin add "fixed bottom-0"
+
+
+
+
+
+
+Redux notes:
+
+1st: install react-redux + @reduxjs/toolkit  https://redux-toolkit.js.org/tutorials/quick-start
+2nd: configureStore  ==> add Provider ==> createSlice ==> add reducer to store
+3rd: Use dispatch hook for dispatch the action( like addUser or deleteUser)
