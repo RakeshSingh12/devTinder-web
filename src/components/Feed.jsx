@@ -1,6 +1,6 @@
 
-const Feeed = () => {
-    return <div> this is feed page</div>
+const Feed = () => {
+    return <h1> this is feed page</h1>
 }
 
-export default Feeed;
+export default Feed;
