@@ -16,6 +16,7 @@ const Boday = () => {
 
 
     const fetchUser = async () => {
+         // check if userData is already loaded
         if (userData) return;
         try {
             const res = await axios.get(BASE_URL + "/profile/view", { withCredentials: true })
