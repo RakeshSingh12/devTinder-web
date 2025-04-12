@@ -12,7 +12,6 @@ const Connections = () => {
     const fetchConnections = async () => {
         try {
             const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true })
-            console.log(res.data.data)
             //dispatch data to store
             dispatch(addConnections(res?.data?.data))
 
@@ -34,10 +33,13 @@ const Connections = () => {
     return (
         <div className="text-center my-3">
             <h1 className="text-bold text-white text-3xl"> Connections</h1>
+            <p className="text-center text-red-500"> {error}</p>
             {connections.map((connections) => {
-                const { firstName, lastName, photoURL, age, gender, about } = connections;
+                const { _id, firstName, lastName, photoURL, age, gender, about } = connections;
                 return (
-                    <div className=" flex m-4 p-4 bg-base-300 rounded-lg w-1/2 mx-auto">
+                    <div
+                        key={_id}
+                        className=" flex m-4 p-4 bg-base-300 rounded-lg w-1/2 mx-auto">
                         <div>
                             <img
                                 alt="photo"
