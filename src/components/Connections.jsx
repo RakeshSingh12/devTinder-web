@@ -26,9 +26,9 @@ const Connections = () => {
         fetchConnections();
     }, []);
 
-    if (!connections) return;
+    if (!connections) return ;
 
-    if (connections.length === 0) return <h1> No Connection Found</h1>;
+    if (connections.length === 0) return <h1 className="text-center text-red-500 text-3xl p-3"> No Connection found</h1>
 
     return (
         <div className="text-center my-3">
@@ -43,7 +43,7 @@ const Connections = () => {
                         <div>
                             <img
                                 alt="photo"
-                                className="w-20 h-20 rounded-full"
+                                className="w-20 h-20 rounded-full object-cover"
                                 src={photoURL} />
                         </div>
                         <div className="text-left mx-4">

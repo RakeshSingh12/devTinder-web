@@ -2,23 +2,38 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constant";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../utils/requestSlice"
+import { addRequests, removeRequest } from "../utils/requestSlice"
 
 const Requests = () => {
     const requests = useSelector((store) => store.requests)
     const dispatch = useDispatch();
     const [error, setError] = useState("")
+
+    const reviewRequest = async (status, _id) => {
+        try {
+            const res = await axios.post(
+                BASE_URL + "/request/review/" + status + "/" + _id,
+                {},
+                { withCredentials: true }
+            ) //2nd paramter always send empty if body no request available
+            dispatch(removeRequest(_id))
+        }
+        catch (err) {
+            setError(err || "Something went wrong")
+        }
+    }
+
+
     const fetchRequest = async () => {
 
-        try {/*  */
+        try {
             const res = await axios.get(BASE_URL + "/user/request/received", { withCredentials: true })
-            //send data to store using use dispatch hooks
+            //send data to store using use useDispatch hooks
             dispatch(addRequests(res?.data?.data));
 
         }
         catch (err) {
-            setError(err.data.message)
-            console.log(err)
+            setError(err || "Something went wrong")
 
         }
     }
@@ -28,13 +43,12 @@ const Requests = () => {
     }, []);
 
     if (!requests) return;
-
-    if (requests.length === 0) return <h1>No Request found</h1>
+ 
+    if (requests.length == 0) return <h1 className="text-center text-red-500 text-3xl p-3"> No Request found</h1>
 
     return (
         <div className="text-center my-3">
             <h1 className="text-bold text-white text-3xl"> Connections Request</h1>
-            <p className="text-center text-red-500"> {error}</p>
             {requests.map((request) => {
                 const { _id, firstName, lastName, photoURL, age, gender, about } = request.fromUserId;
                 return (
@@ -54,8 +68,14 @@ const Requests = () => {
                         </div>
 
                         <div>
-                            <button className="btn btn-primary mx-2">Reject</button>
-                            <button className="btn btn-secondary mx-2">Accept</button>
+                            <button
+                                className="btn btn-secondary mx-2"
+                                onClick={reviewRequest("accepted", request._id)}>Accept</button>
+                            <button
+                                className="btn btn-primary mx-2"
+                                onClick={reviewRequest("rejected", request._id)}>Reject</button>
+
+
                         </div>
 
                     </div>
