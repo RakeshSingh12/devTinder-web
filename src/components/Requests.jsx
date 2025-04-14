@@ -43,7 +43,7 @@ const Requests = () => {
     }, []);
 
     if (!requests) return;
- 
+
     if (requests.length == 0) return <h1 className="text-center text-red-500 text-3xl p-3"> No Request found</h1>
 
     return (
@@ -70,10 +70,10 @@ const Requests = () => {
                         <div>
                             <button
                                 className="btn btn-secondary mx-2"
-                                onClick={reviewRequest("accepted", request._id)}>Accept</button>
+                                onClick={() => reviewRequest("accepted", request._id)}>Accept</button>
                             <button
                                 className="btn btn-primary mx-2"
-                                onClick={reviewRequest("rejected", request._id)}>Reject</button>
+                                onClick={() => reviewRequest("rejected", request._id)}>Reject</button>
 
 
                         </div>

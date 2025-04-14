@@ -7,8 +7,10 @@ const feedSlice = createSlice({
     addFeed: (state, action) => {
       return action.payload;
     },
+    //remove feed request  from the Redux if we click ignored and interested button from Feed page
     deleteFeed: (state, action) => {
-      return null;
+      const newFeed = state.filter((user) => user._id !== action.payload);
+      return newFeed;
     },
   },
 });
