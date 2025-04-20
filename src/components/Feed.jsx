@@ -12,8 +12,8 @@ const Feed = () => {
 
 
     const getFeed = async () => {
-       // check if feed is already loaded
-       // return data
+        // check if feed is already loaded
+        // return data
         if (feed) return;
 
         try {
@@ -29,13 +29,17 @@ const Feed = () => {
     }
     useEffect(() => {
         getFeed();
-
     }, [])
 
+    if (!feed) return;
+
+    if (feed.length <= 0) return <h1 className="flex justify-center my-10"> No New User found</h1>
+
+
     return (
-       feed && (<div className="flex justify-center my-10">
+        feed && (<div className="flex justify-center my-10">
             {/* pass user data as props */}
-            <UserCard user = {feed[0]} />
+            <UserCard user={feed[0]} />
         </div>)
     )
 }
