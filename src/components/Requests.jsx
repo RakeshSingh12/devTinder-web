@@ -53,7 +53,7 @@ const Requests = () => {
                 return (
                     <div
                         key={_id}
-                        className=" flex item-center m-4 p-4 bg-base-300  rounded-lg w-1/2 mx-auto">
+                        className=" flex item-center m-4 p-4 bg-base-300  rounded-lg w-full mx-auto">
                         <div>
                             <img
                                 alt="photo"

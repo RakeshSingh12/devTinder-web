@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [isLoggingForm, setLoggingForm] = useState(false);
+    const [isLoggingForm, setLoggingForm] = useState(true);
     const [error, setError] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -45,11 +45,11 @@ const Login = () => {
                 withCredentials : true
             })
             // dispatch the user data
-            dispatch(addUser(response.data));
+            dispatch(addUser(res.data.data));
             return navigate("/profile")
 
         } catch (err) {
-            setError(err?.response?.data || "Something went wrong")
+            setError(err?.res?.data || "Something went wrong")
         }
     }
     return (
