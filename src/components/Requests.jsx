@@ -30,6 +30,7 @@ const Requests = () => {
             const res = await axios.get(BASE_URL + "/user/request/received", { withCredentials: true })
             //send data to store using use useDispatch hooks
             dispatch(addRequests(res?.data?.data));
+            console.log(res.data.message)
 
         }
         catch (err) {
@@ -42,9 +43,7 @@ const Requests = () => {
         fetchRequest();
     }, []);
 
-    if (!requests) return;
-
-    if (requests.length == 0) return <h1 className="text-center text-red-500 text-3xl p-3"> No Request found</h1>
+    if (requests?.length <= 0 || !requests) return <h1 className="text-center text-red-500 text-3xl p-10"> No Request found</h1>
 
     return (
         <div className="text-center my-3">
