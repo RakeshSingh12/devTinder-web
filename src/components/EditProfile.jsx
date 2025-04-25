@@ -16,8 +16,6 @@ const EditProfile = ({ user }) => {
     const [showToast, setShowToast] = useState(false)
     const dispatch = useDispatch();
 
-
-
     const saveProfile = async () => {
         //Clear existing error
         setError("")

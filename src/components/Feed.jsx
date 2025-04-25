@@ -10,7 +10,6 @@ const Feed = () => {
     const feed = useSelector((store) => store.feed);
     const dispatch = useDispatch();
 
-
     const getFeed = async () => {
         // check if feed is already loaded
         // return data
@@ -33,7 +32,7 @@ const Feed = () => {
 
     if (!feed) return;
 
-    if (feed?.length <= 0) return <h1  className="text-center text-red-500 text-3xl p-10"> No New User found</h1>
+    if (feed?.length <= 0) return <h1 className="text-center text-red-500 text-3xl p-10"> No New User found</h1>
 
 
     return (

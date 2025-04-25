@@ -11,28 +11,19 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-
-
 Note:
 
 daisyUI is a plugin for Tailwind CSS:
 https://daisyui.com/components/link/
 
-
 Router
 Create BrowserRouter > Routes > Route=/Boday >RouteChildren
 Create an Outlet in your body component
 
-
 For footer margin add "fixed bottom-0"
-
-
-
-
-
 
 Redux notes:
 
-1st: install react-redux + @reduxjs/toolkit  https://redux-toolkit.js.org/tutorials/quick-start
-2nd: configureStore  ==> add Provider ==> createSlice ==> add reducer to store
+1st: install react-redux + @reduxjs/toolkit https://redux-toolkit.js.org/tutorials/quick-start
+2nd: configureStore ==> add Provider ==> createSlice ==> add reducer to store
 3rd: Use dispatch hook for dispatch the action( like addUser or deleteUser)

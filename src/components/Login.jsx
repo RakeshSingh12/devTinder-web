@@ -42,7 +42,7 @@ const Login = () => {
                 email,
                 password
             }, {
-                withCredentials : true
+                withCredentials: true
             })
             // dispatch the user data
             dispatch(addUser(res.data.data));
