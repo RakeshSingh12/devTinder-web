@@ -89,7 +89,7 @@ const Login = () => {
                         <fieldset className="fieldset m-2">
                             <legend className="fieldset-legend">Password</legend>
                             <input
-                                type="text"
+                                type="password"
                                 className="input"
                                 placeholder="Please enter password"
                                 value={password}
