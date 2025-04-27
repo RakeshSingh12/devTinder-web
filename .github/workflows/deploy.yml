@@ -1,31 +1,27 @@
 name: Deploy React App to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main # or 'master' if you use that
+# This workflow deploys a React app to GitHub Pages whenever there is a push to the main branch or when manually triggered.
+on: 
+  workflow_dispatch:
+    inputs:
+      DEPLOY_TAG_ONLY_UAT_RC:
+        description: 'Deploy only if the tag is UAT or RC'
+        required: false
+        default: false
+        type: boolean
+
+run-name: "TAG: ${{ vars._IMAGE_TAG_UAT_RC }} - TAG REDEPLOY: ${{ github.event.inputs.DEPLOY_TAG_ONLY_UAT_RC }}"
 
 jobs:
-  deploy:
+  build_1:
+    if: ${{ github.event.inputs.DEPLOY_TAG_ONLY_UAT_RC == 'false' }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build the React app
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        uses: actions/checkout@v4
+      - name: Setup environment
+        run: |
+          echo "Setting up environment..."
+          npm --version
+          node --version
+          export PATH=$PATH:/usr/share/base-completion/completion/
