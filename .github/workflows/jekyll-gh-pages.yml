@@ -56,11 +56,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-      - name: Install Node 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: print node version
-        run: node -v
-      - name: Install dependencies
         
