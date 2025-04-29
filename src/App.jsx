@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Provider store={appStore}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/devTinder-web">
           <Routes>
             <Route path="/" element={<Body />}>
               <Route path="/" element={<Feed />} />
