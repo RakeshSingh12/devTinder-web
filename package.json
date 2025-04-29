@@ -2,17 +2,20 @@
   "name": "devtinder-web",
   "private": true,
   "version": "0.0.0",
-  "type": "module",   "homepage":"https://RakeshSingh12.github.io/devTinder-web",
+  "type": "module",
+  "homepage": "https://RakeshSingh12.github.io/devTinder-web",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest --watchAll --passWithNoTests"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/vite": "^4.0.17",
     "axios": "^1.8.4",
+    "jest-react": "^0.16.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
