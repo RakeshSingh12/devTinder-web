@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://RakeshSingh12.github.io/devTinder-web",
+  "homepage": "https://rakeshsingh12.github.io/devTinder-web",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
