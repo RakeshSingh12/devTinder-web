@@ -21,4 +21,20 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
+  deploy:
+     runs-on: ubuntu-latest/
+     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build React app
+        run: npm run build
+      - name: Deploy to GitHub Pages
+        run: echo "Deploying to GitHub Pages successfully"
+
 
