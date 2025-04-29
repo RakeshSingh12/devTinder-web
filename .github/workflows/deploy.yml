@@ -5,7 +5,8 @@ on: [push, workflow_dispatch]
 
 
 jobs:
-  build_1:
+  #run the tests before deploying
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -17,4 +18,7 @@ jobs:
       - name: print node version
         run: node -v
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+
