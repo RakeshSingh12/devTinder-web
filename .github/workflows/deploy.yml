@@ -21,10 +21,10 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
-  deploy:
-     needs: test
-     runs-on: ubuntu-latest
-     steps:
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Get code
         uses: actions/checkout@v4
       - name: Install Node 20
@@ -35,7 +35,20 @@ jobs:
         run: npm ci
       - name: Build React app
         run: npm run build
-      - name: Deploy to GitHub Pages
+      - name: upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist files
+          path: dist
+  deploy:
+     needs: test
+     runs-on: ubuntu-latest
+     steps:
+      - name: download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist files
+      - name: deploy to github pages
         run: echo "Deploying to GitHub Pages successfully"
 
 
