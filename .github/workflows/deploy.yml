@@ -1,7 +1,7 @@
 name: Deploy React App to GitHub Pages
 
 # This workflow deploys a React app to GitHub Pages whenever there is a push to the main branch or when manually triggered.
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 
 
 jobs:
