@@ -6,7 +6,7 @@
   "homepage": "https://rakeshsingh12.github.io/devTinder-web",
   "scripts": {
     "dev": "vite",
-    "build": "index.html dist/index.html && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest"
@@ -20,7 +20,6 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.4.1",
-    "react-scripts": "^5.0.1",
     "tailwindcss": "^4.0.17"
   },
   "devDependencies": {
