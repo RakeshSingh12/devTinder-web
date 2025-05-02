@@ -16,9 +16,15 @@ const EditProfile = ({ user }) => {
     const [showToast, setShowToast] = useState(false)
     const dispatch = useDispatch();
 
+    //save profile function
+    // this function will be called when user click on save button
+    // it will send the data to the server and update the user data in the store
+    // and show the toast message
+    // if the data is saved successfully
+    // if the data is not saved successfully then it will show the error message
     const saveProfile = async () => {
         //Clear existing error
-        setError("")
+        setError("");
 
         try {
             const res = await axios.patch(

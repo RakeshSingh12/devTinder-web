@@ -1,4 +1,5 @@
 const Footer = () => {
+
     return (
         <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-4 fixed bottom-0">
             <aside className="grid-flow-col items-center">

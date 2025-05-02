@@ -13,6 +13,12 @@ const NavBar = () => {
     // dispatch action to logout user
     // remove user data from store
     // navigate to login page
+    // send request to server to logout user
+    // remove cookies from browser
+    // remove user data from local storage
+    // remove user data from session storage
+    // remove user data from redux store
+    
     try {
       await axios.post(BASE_URL + '/logout', {}, { withCredentials: true })
       dispatch(deleteUser());

@@ -10,6 +10,8 @@ const Requests = () => {
     const [error, setError] = useState("")
 
     const reviewRequest = async (status, _id) => {
+        // status = accepted or rejected
+        // _id = request id
         try {
             const res = await axios.post(
                 BASE_URL + "/request/review/" + status + "/" + _id,

@@ -15,6 +15,11 @@ const Boday = () => {
     const userData = useSelector((store) => store.user);
 
 
+    // fetch user data from api
+    // check if user is already logged in
+    // send data to store using useDispatch hooks
+    // map data to user item component
+    // check if user is already logged in
     const fetchUser = async () => {
         // check if userData is already loaded
         if (userData) return;

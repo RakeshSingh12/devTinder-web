@@ -19,6 +19,7 @@ const Feed = () => {
             // fetch data from api
             // map data to feed item component  
             // dispatch action to feedSlice
+            // send data to store using useDispatch hooks
             const res = await axios.get(BASE_URL + "/feed", { withCredentials: true });
             dispatch(addFeed(res?.data?.data))
         }

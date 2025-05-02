@@ -9,6 +9,10 @@ const Connections = () => {
     const [error, setError] = useState("")
     const dispatch = useDispatch();
 
+    //
+    // fetch connections from api
+    // send data to store using useDispatch hooks
+    // map data to connection item component
     const fetchConnections = async () => {
         try {
             const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true })

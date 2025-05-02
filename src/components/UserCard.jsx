@@ -8,6 +8,8 @@ const UserCard = ({ user }) => {
     const dispatch = useDispatch();
 
     const handleSendRequest = async (status, userId) => {
+        // status = interested or ignored
+        // userId = user id of the person to whom we are sending request
         try {
             const res = await axios.post(BASE_URL + "/request/send" + "/" + status + "/" + userId, {}, { withCredentials: true }) // 2nd paramter currenty don't have data so we pass as an empty resqust that is mandatry
             dispatch(deleteFeed(userId))
