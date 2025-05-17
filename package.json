@@ -6,6 +6,7 @@
   "homepage": "https://rakeshsingh12.github.io/devTinder-web",
   "scripts": {
     "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
