@@ -1,4 +1,9 @@
 const premiumMembership = () => {
+
+    const handlerPremiumClick = (type) => {
+        console.log(type);
+    }
+
     return (
         <div className="m-10">
             <div className="flex w-full">
@@ -11,10 +16,10 @@ const premiumMembership = () => {
                         <li>Blue tick</li>
                         <li>3 months</li>
                     </ul>
-                    <button className="btn btn-primary">Buy silver</button>
+                    <button onClick={() => handlerPremiumClick("silver")} className="btn btn-primary">Buy silver</button>
                 </div>
                 <div className="divider divider-horizontal">OR</div>
-                <div className="card bg-base-300 rounded-box grid p-10 grow place-items-center">
+                <div className="card bg-base-300 rounded-box grid  p-10 grow place-items-center">
                     <h1 className="font-bold text-3xl">Gold membership</h1>
                     <ul>
                         <li>Chat with other pepople</li>
@@ -23,7 +28,7 @@ const premiumMembership = () => {
                         <li>Blue tick</li>
                         <li>10 months</li>
                     </ul>
-                    <button className="btn btn-primary">Buy Gold</button>
+                    <button onClick={() => handlerPremiumClick("gold")} className="btn btn-secondary">Buy Gold</button>
                 </div>
             </div>
         </div>
