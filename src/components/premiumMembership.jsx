@@ -1,7 +1,15 @@
+import { BASE_URL } from "../utils/constant"
 const premiumMembership = () => {
 
-    const handlerPremiumClick = (type) => {
-        console.log(type);
+    const handlerPremiumBuyClick = async (type) => {
+        const order = await axios.post(
+            BASE_URL + "/payment/create",
+            {
+                type
+            },
+            {
+                withCredentials: true
+            })
     }
 
     return (
@@ -16,7 +24,7 @@ const premiumMembership = () => {
                         <li>Blue tick</li>
                         <li>3 months</li>
                     </ul>
-                    <button onClick={() => handlerPremiumClick("silver")} className="btn btn-primary">Buy silver</button>
+                    <button onClick={() => handlerPremiumBuyClick("silver")} className="btn btn-primary">Buy silver</button>
                 </div>
                 <div className="divider divider-horizontal">OR</div>
                 <div className="card bg-base-300 rounded-box grid  p-10 grow place-items-center">
@@ -28,7 +36,7 @@ const premiumMembership = () => {
                         <li>Blue tick</li>
                         <li>10 months</li>
                     </ul>
-                    <button onClick={() => handlerPremiumClick("gold")} className="btn btn-secondary">Buy Gold</button>
+                    <button onClick={() => handlerPremiumBuyClick("gold")} className="btn btn-secondary">Buy Gold</button>
                 </div>
             </div>
         </div>
