@@ -8,11 +8,16 @@ import Requests from "./components/Requests"
 import PremiumMembership from "./components/premiumMembership"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
+
+// This is the main entry point of the application
+// It sets up the routing and provides the Redux store to the application
+// Import necessary components and libraries
 function App() {
 
   return (
     <>
       <Provider store={appStore}>
+        {/* Wrap the application in BrowserRouter for routing */}
         <BrowserRouter basename="/devTinder-web">
           <Routes>
             <Route path="/" element={<Body />}>

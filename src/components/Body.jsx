@@ -10,7 +10,7 @@ import { BASE_URL } from "../utils/constant";
 import { useNavigate } from "react-router-dom";
 
 const Boday = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();// useDispatch hook to dispatch actions to the store
     const navigate = useNavigate();
     const userData = useSelector((store) => store.user);
 
@@ -26,7 +26,7 @@ const Boday = () => {
         try {
             const res = await axios.get(BASE_URL + "/profile/view", { withCredentials: true })
             // send data to store
-            dispatch(addUser(res.data))
+            dispatch(addUser(res.data)) // add user data to the store using addUser action
 
         }
         catch (error) {

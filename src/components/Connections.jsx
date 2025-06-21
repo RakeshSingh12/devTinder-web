@@ -1,13 +1,13 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../utils/constant"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux" // useSelector hook to access the store state
 import { addConnections } from "../utils/connectionSlice"
 
 const Connections = () => {
-    const connections = useSelector((store) => store.connection)
+    const connections = useSelector((store) => store.connection) // useSelector hook to access the connections state from the store
     const [error, setError] = useState("")
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); // useDispatch hook to dispatch actions to the store
 
     //
     // fetch connections from api
@@ -17,7 +17,7 @@ const Connections = () => {
         try {
             const res = await axios.get(BASE_URL + "/user/connections", { withCredentials: true })
             //dispatch data to store
-            dispatch(addConnections(res?.data?.data))
+            dispatch(addConnections(res?.data?.data)) // add connections data to the store using addConnections action
 
         }
         catch (err) {

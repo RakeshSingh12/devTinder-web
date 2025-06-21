@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Define a user slice with initial state and reducers.
+// The initial state is set to null, indicating no user is logged in.
 const userSlice = createSlice({
   name: "user",
   initialState: null,
