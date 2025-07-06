@@ -7,6 +7,8 @@ import UserCard from "./UserCard";
 
 const Feed = () => {
 
+    // useSelector hook to access the feed state from the store
+    // useDispatch hook to dispatch actions to the store
     const feed = useSelector((store) => store.feed);
     const dispatch = useDispatch();
 
@@ -27,6 +29,8 @@ const Feed = () => {
             console.log(err)
         }
     }
+    // useEffect hook to fetch feed data when component mounts
+    // and when feed changes
     useEffect(() => {
         getFeed();
     }, [])

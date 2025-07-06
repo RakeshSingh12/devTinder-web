@@ -1,4 +1,6 @@
 import { BASE_URL } from "../utils/constant"
+
+// This component allows users to purchase premium memberships
 const premiumMembership = () => {
 
     const handlerPremiumBuyClick = async (type) => {
