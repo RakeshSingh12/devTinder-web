@@ -27,3 +27,20 @@ Redux notes:
 1st: install react-redux + @reduxjs/toolkit https://redux-toolkit.js.org/tutorials/quick-start
 2nd: configureStore ==> add Provider ==> createSlice ==> add reducer to store
 3rd: Use dispatch hook for dispatch the action( like addUser or deleteUser)
+
+
+# Sending Emails via SES
+
+    - Create a IAM user
+    - Give Access to AmazonSESFullAccess
+    - Amazon SES: Create an Identity
+    - Verify your domain name
+    - Verify an email address identity
+    - Install AWS SDK - v3 
+    - Code Example https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ses#code-examples
+    - Setup SesClient
+    - Access Credentials should be created in IAm under SecurityCredentials Tab
+    - Add the credentials to the env file
+    - Write code for SESClient
+    - Write code for Sending email address
+    - Make the email dynamic by passing more params to the run function
