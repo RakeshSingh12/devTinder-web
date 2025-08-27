@@ -11,6 +11,7 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+
 Note:
 
 daisyUI is a plugin for Tailwind CSS:
@@ -21,6 +22,7 @@ Create BrowserRouter > Routes > Route=/Boday >RouteChildren
 Create an Outlet in your body component
 
 For footer margin add "fixed bottom-0"
+
 
 Redux notes:
 
