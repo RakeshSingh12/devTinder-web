@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../utils/constant";
+import { API_ENDPOINTS } from "../utils/constants";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addRequests, removeRequest } from "../utils/requestSlice"
@@ -14,7 +14,7 @@ const Requests = () => {
         // _id = request id
         try {
             const res = await axios.post(
-                BASE_URL + "/request/review/" + status + "/" + _id,
+                API_ENDPOINTS.BASE_URL + API_ENDPOINTS.REQUESTS.REVIEW + "/" + status + "/" + _id,
                 {},
                 { withCredentials: true }
             ) //2nd paramter always send empty if body no request available
@@ -29,7 +29,7 @@ const Requests = () => {
     const fetchRequest = async () => {
 
         try {
-            const res = await axios.get(BASE_URL + "/user/request/received", { withCredentials: true })
+            const res = await axios.get(API_ENDPOINTS.BASE_URL + API_ENDPOINTS.REQUESTS.RECEIVED, { withCredentials: true })
             //send data to store using use useDispatch hooks
             dispatch(addRequests(res?.data?.data));
             console.log(res.data.message)

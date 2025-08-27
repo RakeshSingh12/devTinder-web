@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../utils/constant"
+import { API_ENDPOINTS } from "../utils/constants"
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeed } from "../utils/feedSlice";
 import { useEffect } from "react"
@@ -22,23 +22,24 @@ const Feed = () => {
             // map data to feed item component  
             // dispatch action to feedSlice
             // send data to store using useDispatch hooks
-            const res = await axios.get(BASE_URL + "/feed", { withCredentials: true });
+            const res = await axios.get(API_ENDPOINTS.BASE_URL + API_ENDPOINTS.FEED, { withCredentials: true });
             dispatch(addFeed(res?.data?.data))
         }
         catch (err) {
-            console.log(err)
+            console.log("Error fetching feed:", err)
         }
     }
     // useEffect hook to fetch feed data when component mounts
     // and when feed changes
     useEffect(() => {
         getFeed();
-    }, [])
+    }, [feed, dispatch])
 
-    if (!feed) return;
+    if (!feed) return <div className="flex justify-center my-10">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>;
 
     if (feed?.length <= 0) return <h1 className="text-center text-red-500 text-3xl p-10"> No New User found</h1>
-
 
     return (
         feed && (<div className="flex justify-center my-10">

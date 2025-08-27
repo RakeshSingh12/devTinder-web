@@ -6,14 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useEffect } from "react"
 import axios from "axios";
-import { BASE_URL } from "../utils/constant";
+import { API_ENDPOINTS } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 
-const Boday = () => {
+const Body = () => {
     const dispatch = useDispatch();// useDispatch hook to dispatch actions to the store
     const navigate = useNavigate();
     const userData = useSelector((store) => store.user);
-
 
     // fetch user data from api
     // check if user is already logged in
@@ -24,25 +23,22 @@ const Boday = () => {
         // check if userData is already loaded
         if (userData) return;
         try {
-            const res = await axios.get(BASE_URL + "/profile/view", { withCredentials: true })
+            const res = await axios.get(API_ENDPOINTS.BASE_URL + API_ENDPOINTS.PROFILE.VIEW, { withCredentials: true })
             // send data to store
             dispatch(addUser(res.data)) // add user data to the store using addUser action
-
         }
         catch (error) {
             // navigate to login page if user is not authenticated
-            if (error.status === 401) {
+            if (error.response?.status === 401) {
                 navigate("/login")
             }
-            console.log(error);
+            console.log("Error fetching user:", error);
         }
     }
 
     useEffect(() => {
         fetchUser();
-
-    }, [])
-
+    }, [userData, dispatch, navigate])
 
     return <div>
         <NavBar />
@@ -51,4 +47,4 @@ const Boday = () => {
     </div>
 }
 
-export default Boday;
+export default Body;

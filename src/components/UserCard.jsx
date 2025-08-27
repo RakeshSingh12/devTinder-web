@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "../utils/constant";
+import { API_ENDPOINTS } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { deleteFeed } from "../utils/feedSlice"
 
@@ -11,11 +11,11 @@ const UserCard = ({ user }) => {
         // status = interested or ignored
         // userId = user id of the person to whom we are sending request
         try {
-            const res = await axios.post(BASE_URL + "/request/send" + "/" + status + "/" + userId, {}, { withCredentials: true }) // 2nd paramter currenty don't have data so we pass as an empty resqust that is mandatry
+            const res = await axios.post(API_ENDPOINTS.BASE_URL + API_ENDPOINTS.REQUESTS.SEND + "/" + status + "/" + userId, {}, { withCredentials: true }) // 2nd paramter currenty don't have data so we pass as an empty resqust that is mandatry
             dispatch(deleteFeed(userId))
         }
         catch (err) {
-
+            console.error("Error sending request:", err);
         }
     }
     return (

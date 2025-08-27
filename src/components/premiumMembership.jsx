@@ -1,17 +1,23 @@
-import { BASE_URL } from "../utils/constant"
+import axios from "axios";
+import { API_ENDPOINTS } from "../utils/constants"
 
 // This component allows users to purchase premium memberships
 const premiumMembership = () => {
 
     const handlerPremiumBuyClick = async (type) => {
-        const order = await axios.post(
-            BASE_URL + "/payment/create",
-            {
-                type
-            },
-            {
-                withCredentials: true
-            })
+        try {
+            const order = await axios.post(
+                API_ENDPOINTS.BASE_URL + API_ENDPOINTS.PAYMENT.CREATE,
+                {
+                    type
+                },
+                {
+                    withCredentials: true
+                })
+            console.log("Payment order created:", order.data);
+        } catch (error) {
+            console.error("Error creating payment order:", error);
+        }
     }
 
     return (

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { BASE_URL } from "../utils/constant";
+import { API_ENDPOINTS } from "../utils/constants";
 import { deleteUser } from "../utils/userSlice";
 
 const NavBar = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
     // remove user data from redux store
     
     try {
-      await axios.post(BASE_URL + '/logout', {}, { withCredentials: true })
+      await axios.post(API_ENDPOINTS.BASE_URL + API_ENDPOINTS.LOGOUT, {}, { withCredentials: true })
       dispatch(deleteUser());
       return navigate('/login');
     }
