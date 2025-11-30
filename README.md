@@ -221,6 +221,7 @@ DEBUG=true npm run dev
 ## 📚 **Documentation**
 
 - **[Optimization Guide](OPTIMIZATION_GUIDE.md)**: Comprehensive performance optimization guide
+- **[CI/CD Guide](CI_CD_GUIDE.md)**: Deployment and testing pipeline documentation
 - **[API Status Report](API_STATUS_REPORT.md)**: Detailed API endpoint documentation
 - **[Component Documentation](src/components/)**: Individual component documentation
 
