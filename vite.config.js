@@ -5,5 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/devTinder-web/"
+  base: "/devTinder-web/",
+  server: {
+    open: true,
+  },
 });
