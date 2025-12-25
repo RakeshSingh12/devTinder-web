@@ -18,45 +18,45 @@ export const APP_CONFIG = {
 
 // API endpoints (if any)
 export const API_ENDPOINTS = {
-  BASE_URL: "http://localhost:7777", // Local development server
-  
+  BASE_URL: import.meta.env.VITE_API_BASE_URL || "http://localhost:7777", // Local development server fallback
+
   // Authentication endpoints
   AUTH: '/auth',
   LOGIN: '/login',
   SIGNUP: '/signup',
   LOGOUT: '/logout',
-  
+
   // User management endpoints
   USERS: '/users',
   USER: {
     UPDATE: '/user/update',
     PROFILE: '/user/profile'
   },
-  
+
   // Profile endpoints
   PROFILE: {
     VIEW: '/profile/view',
     EDIT: '/profile/edit',
     UPDATE: '/profile/update'
   },
-  
+
   // Feed and matching endpoints
   FEED: '/feed',
   MATCHES: '/matches',
-  
+
   // Connection endpoints
   CONNECTIONS: '/user/connections',
-  
+
   // Request endpoints
   REQUESTS: {
     SEND: '/request/send',
     RECEIVED: '/user/request/received',
     REVIEW: '/request/review'
   },
-  
+
   // Chat endpoints
   CHAT: '/chat',
-  
+
   // Payment endpoints
   PAYMENT: {
     CREATE: '/payment/create'
