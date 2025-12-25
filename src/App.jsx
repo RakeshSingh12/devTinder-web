@@ -32,20 +32,20 @@ function App() {
               {/* Main layout route */}
               <Route path={ROUTES.HOME} element={<Body />}>
                 {/* Default route redirects to feed */}
-                <Route index element={<Navigate to={ROUTES.FEED} replace />} />
-                
+                <Route index element={<Navigate to={ROUTES.LOGIN} replace />} />
+
                 {/* Public routes */}
                 <Route path={ROUTES.LOGIN} element={<Login />} />
-                
+
                 {/* Protected routes - you can add authentication guards here */}
                 <Route path={ROUTES.FEED} element={<Feed />} />
                 <Route path={ROUTES.PROFILE} element={<Profile />} />
                 <Route path={ROUTES.CONNECTIONS} element={<Connections />} />
                 <Route path={ROUTES.REQUESTS} element={<Requests />} />
                 <Route path={ROUTES.PREMIUM_MEMBERSHIP} element={<PremiumMembership />} />
-                
+
                 {/* Catch all route for 404 */}
-                <Route path="*" element={<Navigate to={ROUTES.FEED} replace />} />
+                <Route path="*" element={<Navigate to={ROUTES.LOGIN} replace />} />
               </Route>
             </Routes>
           </Suspense>
